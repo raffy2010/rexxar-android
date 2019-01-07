@@ -195,7 +195,7 @@ public class RexxarWebViewClient extends WebViewClient {
                 LogUtils.i(TAG, "cache hit :" + requestUrl);
                 String data = "";
                 try {
-                    data = IOUtils.toString(cacheEntry.inputStream);
+                    data = IOUtils.toString(cacheEntry.inputStream).trim();
                     // hack 检查cache是否完整
                     if (TextUtils.isEmpty(data) || !data.endsWith("</html>")) {
                         RxLoadError error = RxLoadError.HTML_CACHE_INVALID.clone();
